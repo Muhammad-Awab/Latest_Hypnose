@@ -1,18 +1,114 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<div class="main">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <div class="leftside">
-                    <h1 class="text-center">HYPNOS</h1>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum
-                        voluptates. Quisquam, voluptatum voluptates.</p>
-                    <div class="text-center">
-                        <button class="btn btn-primary">Get Started</button>
-                    </div>
+<div class="h-100 w-100 d-flex align-items-center justify-content-center">
+    <div class="leftside m-5">
+        <h1 class="text-center">HYPNOS</h1>
+        <p class="text-center fw-bold " style="font-size:2rem;">
+            We use evidenced based tools to understand your sleep related issues
+            and determine how best to treat them.
+        </p>
+        <p class="text-center" style="font-size:1.5rem;">Start Free Assessment. This assessment may take up to 15 minutes of your time.</p>
+        <div class="text-center">
+            <button class="btn btn-lg text-light" type="button" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="background-color:red;">Get Started</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+ @*           <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>*@
+            <div class="modal-body">
+                <h3> Are You 18 Years Old ?</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Yes
+                    </label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        No
+                    </label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn btn-lg text-light" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-lg text-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" style="background-color:red;">Process</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Disclaimer</h1>
+                <button type="button" class="btn-close btn btn-lg" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <h4>Do you have any of the following conditions (Exclusion criteria, if any of these present, assessment stops with the following statement)</h4>
+                <ul>
+
+
+                    <li>Neuromuscular disorder (such as Guillan Barre Syndrome, Myasthenia Gravis, Amyotrophic lateral sclerosis)</li>
+                    
+                    <li>Neurocognitive disorder (such as dementia, Alzheimer's disease, Parkinson’s disease)</li>
+                    
+                    <li>History of stroke (cerebrovascular accident)</li>
+                    
+                    <li>Coronary artery disease</li>
+                    
+                    <li>Congestive Heart failure</li>
+                    
+                    <li>Atrial fibrillation</li>
+                    
+                    <li>BMI >50</li>
+                    
+                    <li>Spinal cord injury</li>
+                    
+                    <li>Thoracic surgery</li>
+                    
+                    <li>Congenital heart disease</li>
+                    
+                    <li>COPD or other chronic lung disease</li>
+                    
+                    <li>Pulmonary hypertension</li>
+                    
+                    <li>Chronic use of controlled substances (opiates, benzodiazepines, ADHD meds)</li>
+                    
+                    <li>History of PTSD</li>
+                    
+                    <li>Illicit drug use (specifically illegal use of drugs such as cocaine, LSD, heroin or fentanyl)</li>
+
+            </ul>
+
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        No
+                    </label>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-lg text-light" @onclick="submit" style="background-color:red;">Process</button>
             </div>
         </div>
     </div>
@@ -21,4 +117,9 @@
 
 @code{
 
+
+    public void submit()
+    {
+        NavigationManager.NavigateTo("/registration", forceLoad: true);
+    }
 }

@@ -1,0 +1,154 @@
+﻿@page "/pasthistories"
+
+<style>
+    body {
+    font-family: "Lato", sans-serif;
+    min-height: 100vh;
+   
+}
+    .container {
+        padding: 30px 40px;
+    }
+
+    h1 {
+        color: rgb(107, 0, 0);
+        font-size: 50px !important;
+    }
+</style>
+<div class="container">
+
+    <p class="text"></p>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Past_Medical_History', 'arrow1')" id="defaultOpen">
+            <i class="fas fa-laptop-code"></i>
+            Past Medical History
+            <span id="arrow1" class="arrow fas fa-caret-right"></span>
+        </button>
+
+        <button class="tablinks " onclick="openTab(event, 'Past_Surgical_History', 'arrow2')">
+            <i class="fab fa-wordpress"></i>
+            Past Surgical History  <span id="arrow2" class=" arrow fas fa-caret-right"></span>
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Social_History', 'arrow3')">
+            <i class="fas fa-video"></i>
+            Social History
+            <span id="arrow3" class=" arrow fas fa-caret-right"></span>
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Family_history', 'arrow4')">
+            <i class="far fa-image"></i>
+            Family history <span id="arrow4" class=" arrow fas fa-caret-right"></span>
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Medication_list', 'arrow4')">
+            <i class="far fa-image"></i>
+            Medication list <span id="arrow4" class=" arrow fas fa-caret-right"></span>
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Allergies', 'arrow4')">
+            <i class="far fa-image"></i>
+            Allergies <span id="arrow4" class=" arrow fas fa-caret-right"></span>
+        </button>
+    </div>
+
+    <div id="Past_Medical_History" class="tabcontent">
+        <div class="container">
+            <h3>Medical Conditions Dropdown</h3>
+            <form>
+                <div class="form-group">
+                    <label for="condition">Select a Medical Condition:</label>
+                    <select class="form-control" id="condition" name="condition">
+                        <option value="">-- Select --</option>
+                        <option value="diabetes">Diabetes</option>
+                        <option value="hypertension">Hypertension</option>
+                        <option value="asthma">Asthma</option>
+                        <option value="migraine">Migraine</option>
+                        <option value="arthritis">Arthritis</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="Past_Surgical_History" class="tabcontent">
+        <div class="container">
+            <h1>Medical Operations</h1>
+            <p>Any operations done in the past ?</p>
+            <input class="form-control" type="text" placeholder="Write text here" aria-label="default input example">
+            <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+        </div>
+    </div>
+
+    <div id="Social_History" class="tabcontent">
+        <div class="container">
+            <h1>Social Behaviors Form</h1>
+            <form>
+                <div class="form-group ">
+                    <label for="smokingHistory">1. History of Smoking</label>
+                    <input type="text" class="form-control" id="smokingHistory" placeholder="Enter smoking history">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="alcoholHistory">2. History of Alcohol Use</label>
+                    <input type="text" class="form-control" id="alcoholHistory" placeholder="Enter alcohol history">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="drugHistory">3. History of Illicit or Illegal Drug Use</label>
+                    <input type="text" class="form-control" id="drugHistory" placeholder="Enter drug history">
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div id="Family_history" class="tabcontent">
+        <div class="container ">
+            <h3>Parents, siblings or children with history of any sleep disorders</h3>
+            <input type="text" class="form-control" id="drugHistory" placeholder="Write text here">
+                <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+
+        </div>
+    </div>
+    <div id="Medication_list" class="tabcontent">
+        <div class="container">
+            <h2>Let patients free text their medications</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="medications" class="form-label">Medications:</label>
+                    <textarea class="form-control" id="medications" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div id="Allergies" class="tabcontent">
+        <div class="container">
+            <h2>Allergy Form</h2>
+            <form>
+                <div class="form-group">
+                    <label for="allergy-question">Are you allergic to any medication?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="allergy" id="allergy-yes" value="yes">
+                        <label class="form-check-label" for="allergy-yes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="allergy" id="allergy-no" value="no">
+                        <label class="form-check-label" for="allergy-no">
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergy-details">If yes, please list the name and type of allergic reaction:</label>
+                    <textarea class="form-control" id="allergy-details" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-lg mt-4">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+@code {
+
+}

@@ -1,0 +1,122 @@
+﻿@page "/demographic"
+
+@inject NavigationManager nm
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-lg-2 mb-5">
+            <div style="margin-top:05%">
+                <div class="card border-primary">
+                    <div class="card-body shadow-sm p-3">
+                        <section>
+                            <h5 class="text-black-50 mb-4">
+                            </h5>
+                            <h3>Demographic</h3>
+                            <h4 class="mb-3 fw-200">Please Answer the Following Questions.</h4>
+                            <div class=" mb-4">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" aria-label="Floating label select example">
+                                        <option value="-1" selected>Select Gender</option>
+
+                                        <option value="50">Male</option>
+                                        <option value="50">Female</option>
+                                        <option value="60">Non Binary</option>
+                                        <option value="60">Prefer Not to Say</option>
+
+                                    </select>
+                                    <label for="floatingSelect" class="label">Select the gender .</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" aria-label="Floating label select example">
+                                        <option value="-1" selected>Select Race</option>
+
+                                        <option value="50">White</option>
+                                        <option value="50">BLack</option>
+                                        <option value="60"> African American</option>
+                                        <option value="60">American Indian</option>
+                                        <option value="60">Alaska Native</option>
+                                        <option value="60">Asian</option>
+                                        <option value="60"> Native Hawaiian</option>
+                                        <option value="60"> Pacific Islander</option>
+
+                                    </select>
+                                    <label for="floatingSelect" class="label">Select Your Race</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" aria-label="Floating label select example">
+                                        <option value="-1" selected>Select Ethnicity</option>
+                                        <option value="50">American People</option>
+                                        <option value="50">White People</option>
+                                        <option value="60">Asian American</option>
+                                        <option value="60">Hispanic</option>
+                                        <option value="60">African American</option>
+                                        <option value="60">Alaska Natives</option>
+
+                                    </select>
+                                    <label for="floatingSelect" class="label">Select the Ethnic Group.</label>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-3 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Enter Height in feet</label>
+                                        <input type="text" class="form-control" @bind="@height" id="exampleFormControlInput1" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Enter Weight in kg</label>
+                                        <input type="text" class="form-control" @bind="@weight" id="exampleFormControlInput1" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <br />
+                                        <button class="btn btn-danger mt-2" @onclick="calculatebmi">Calculate</button>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">BMI</label>
+                                        <input type="text" readonly class="form-control" @bind="@bmi" id="exampleFormControlInput1">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Enter the Neck Circumference.</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" required>
+                                </div>
+
+
+                            </div>
+
+                            <div>
+                                <button class="btn btn-danger me-2 btn-lg" style="float:right;" @onclick="submit">Next</button>
+                                @* <button @onclick="()=>UpdatePatentResponses(quiz[QuestionNo].Qno,quiz[QuestionNo].Question,SelectedChoice)" class="btn btn-primary btn-next" disabled="@NextIsDisabled">Next</button>*@
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    public double height { get; set; }
+    public double weight { get; set; }
+
+    public double bmi { get; set; }
+    public double meter { get; set; }
+
+
+    public void calculatebmi()
+    {
+        meter = height * 0.304;
+        if (weight > 0 && meter > 0.0 && meter <= 2.1336)
+        {
+
+            bmi = weight / (meter * meter);
+        }
+    }
+    void submit()
+    {
+        nm.NavigateTo("/pasthistories");
+    }
+}

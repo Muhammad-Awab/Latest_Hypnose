@@ -67,3 +67,131 @@ a, .btn-link {
 
     font-size:20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box
+}
+
+
+
+/* Style the tab */
+.tab {
+    float: left;
+    width: 20%;
+    height: 466px;
+    margin-top: -12px;
+}
+    /* Style the buttons inside the tab */
+    .tab button {
+        display: block;
+        color: black;
+        padding: 18px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.5s ease-in;
+        font-size: 17px;
+        margin: 15px;
+    }
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: rgb(91, 161, 227);
+        }
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: red;
+            color: white;
+        }
+/* Style the tab content */
+.tabcontent {
+    /*display:none;*/
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid rgb(88, 88, 88);
+    background: #fff;
+    width: 70%;
+    height: 400px;
+    margin-left: 40px;
+    animation: blinker 0.6s linear;
+}
+/* animation effects */
+@keyframes blinker {
+    10% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.tab .arrow {
+    color: rgb(88, 88, 88);
+    float: right;
+    font-size: 26px;
+    position: relative;
+    left: 25px;
+}
+
+@media (max-width: 800px) {
+    .tab {
+        width: 30% !important;
+    }
+
+    .tabcontent {
+        width: 61%;
+    }
+}
+
+@media (max-width: 600px) {
+    .tab, .tabcontent {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+        .tab button {
+            width: 100%;
+            margin: 10px 0px;
+            padding: 18px 10px;
+        }
+
+        .tab .arrow {
+            display: none !important;
+        }
+}
+
+.text {
+    font-weight: 900;
+    text-align: center;
+}
+
+#Past_Surgical_History {
+    display: none;
+}
+#Social_History {
+    display: none;
+}
+#Family_history {
+    display: none;
+}
+#Medication_list {
+    display: none;
+}
+#Allergies {
+    display: none;
+}
